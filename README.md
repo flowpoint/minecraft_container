@@ -33,7 +33,7 @@ or restore from backup
 
 podman run --name minecraft_server \
     --mount type=volume,src=minecraft_server_data,target=/mnt/minecraft_server_data \
-    -p 25565:25565 \
+    -p 26998:26998 \
     minecraft_server
 
 ## backup
@@ -54,7 +54,7 @@ podman run --rm \
     bash -c "cd /mnt/minecraft_server_data && tar xvf /backup/backup.tar --strip 1"
 
 or simpler:
-tar backup --to-stdout | podman volume import minecraft_server_data -
+tar -C /root/backup -c . --to-stdout | podman volume import minecraft_server_data -
 
 ## install system service
 the container has to be run as above and not be removed
