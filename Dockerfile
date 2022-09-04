@@ -1,6 +1,6 @@
 FROM eclipse-temurin
 
-ARG MINECRAFT_SERVER_VERSION="1.19.2"
+ARG MINECRAFT_SERVER_VERSION="1.18.2"
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y jq 
@@ -17,4 +17,4 @@ RUN curl https://piston-meta.mojang.com/mc/game/version_manifest_v2.json --outpu
 
 # this expects a volume with the server data to be mounted at /mnt/minecraft_server_data
 WORKDIR /mnt/minecraft_server_data
-CMD ["java", "-jar", "/mnt/minecraft_server_data/server.jar", "nogui"]
+CMD ["java", "-jar", "/opt/minecraft_server/server.jar", "nogui"]

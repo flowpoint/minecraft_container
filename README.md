@@ -57,11 +57,12 @@ or simpler:
 tar backup --to-stdout | podman volume import minecraft_server_data -
 
 ## install system service
-
 the container has to be run as above and not be removed
 then:
 
-cp minecraft_server.service /etc/systemd/system/
+recommended generate systemd unit on the fly:
+podman generate systemd --name minecraft_server > /etc/systemd/system/minecraft_server.service
+
 systemctl enable minecraft_server.service
 systemctl start minecraft_server.service
 
