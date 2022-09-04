@@ -17,4 +17,4 @@ RUN curl https://piston-meta.mojang.com/mc/game/version_manifest_v2.json --outpu
 
 # this expects a volume with the server data to be mounted at /mnt/minecraft_server_data
 WORKDIR /mnt/minecraft_server_data
-CMD ["java", "-Xmx2048m", "-Xms2048", "-jar", "/opt/minecraft_server/server.jar", "nogui"]
+CMD ["java", "-Xmx2048m", "-Xms2048m", "-jar", "/opt/minecraft_server/server.jar", "nogui"]
